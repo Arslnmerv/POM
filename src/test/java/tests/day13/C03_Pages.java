@@ -28,5 +28,6 @@ public class C03_Pages extends TestBase {
 
         // ilk urunun isminde Java gectigini test edin
        Assert.assertTrue(amazonPage.ilkUrun.getText().contains("Java"));
+
     }
 }
