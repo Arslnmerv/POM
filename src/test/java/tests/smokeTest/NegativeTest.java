@@ -19,7 +19,7 @@ public class NegativeTest {
 
     QAConcortPage qaConcortPage;
     @Test (priority = -1)
-    public void yanlisSifre () {
+    public void yanlisSifre ()  {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();

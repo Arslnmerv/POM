@@ -39,19 +39,19 @@ public class C02_E2ETest {
                 .sendKeys(faker.phoneNumber().phoneNumber() + Keys.TAB)
                 .sendKeys(faker.internet().emailAddress()).perform();
 
-        actions.click(qaConcortPage.dropdown).perform();
-        Select select = new Select(qaConcortPage.dropdown);
+        actions.click(qaConcortPage.addHotelDropdown).perform();
+        Select select = new Select(qaConcortPage.addHotelDropdown);
         select.selectByValue("1");
 
         //8. Save butonuna tıklayın.
-        qaConcortPage.saveButton.click();
+        qaConcortPage.addHotelSave.click();
 
         //9. “Hotel was inserted successfully” textinin göründüğünü test edin.
         Thread.sleep(1000);
-        Assert.assertTrue(qaConcortPage.hotelWasInsertedSuccessfullyText.isDisplayed(), "“Hotel was inserted successfully” text isn't displayed.");
+        Assert.assertTrue(qaConcortPage.addHotelSuccesfullYazisi.isDisplayed(), "“Hotel was inserted successfully” text isn't displayed.");
 
         //10. OK butonuna tıklayın.
-        qaConcortPage.hotelWasInsertedSuccessfullyTextOkButton.click();
+        qaConcortPage.addHotelAllertOk.click();
 
         Driver.closeDriver();
     }
