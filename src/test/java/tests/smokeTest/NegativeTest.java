@@ -18,13 +18,14 @@ public class NegativeTest {
     //4) Verilen senaryolar ile giris yapilamadigini test et
 
     QAConcortPage qaConcortPage;
-    @Test (priority = -1)
-    public void yanlisSifre ()  {
+    @Test (priority = -1 ,groups = "birinciGrup")
+    public void yanlisSifre () throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAInvalidPassword"));
+        Thread.sleep(2000);
         qaConcortPage.loginButonu.click();
         Assert.assertTrue(qaConcortPage.loginFailedYazisi.isDisplayed());
 

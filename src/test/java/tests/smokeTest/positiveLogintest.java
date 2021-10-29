@@ -23,6 +23,7 @@ public class positiveLogintest {
 
 //         test data password : Manager1!
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
+        Thread.sleep(2000);
         qaConcortPage.loginButonu.click();
         Thread.sleep(2000);
 

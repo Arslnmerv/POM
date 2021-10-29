@@ -15,7 +15,6 @@ public class C01_Pages extends TestBase {
 
     @Test
     public void test () {
-
         driver.get("https://www.amazon.com");
         WebElement aramaKutusu = driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("nutella" + Keys.ENTER);

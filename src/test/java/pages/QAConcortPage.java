@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -96,15 +97,28 @@ public class QAConcortPage {
     @FindBy(xpath = "tbody//tr")
     public List<WebElement> satirlarListesi;
 
+    @FindBy(xpath = "//tbody//tr//td")
+    public List<WebElement> sutunlarListesi;
+
     @FindBy(xpath = "//tbody//tr[1]")
     public WebElement birinciSatir;
+
+    @FindBy(xpath = "//tbody//tr[4]")
+    public WebElement dorduncuSatir;
 
     @FindBy(xpath = "//tbody/tr//td[4]")
     public List<WebElement> dorduncuSutunListesi;
 
+    @FindBy(xpath = "//tbody/tr//td[5]")
+    public List<WebElement> besinciSutunListesi;
+
+    @FindBy(xpath = "//tbody//tr//td")
+    public List<WebElement> toplamHucre;
+
     public void ConcortHotelLogin() throws InterruptedException {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
+        Thread.sleep(1000);
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQAValidUsername"));
         qaConcortPage.passwordKutusu.sendKeys(ConfigReader.getProperty("CHQAValidPassword"));
@@ -116,10 +130,10 @@ public class QAConcortPage {
         //ornekteki haliyle 3.satir 5.sutundaki elemani yazdiralim
         //String xpath= //tbody//tr[3]//td[5]
         //degismeyecek kisimlari String olarak degisecek kisimlari ise parametre ismi olarak yazdik
-        String xpath = "//tbody//tr["+satir+"]//td["+sutun+"]";
+        String xpath = "//tbody//tr[" + satir + "]//td[" + sutun + "]";
 
         //@FindBy notasyonu parametreli calismadigi icin onceki yontemle locate edelim.
-        String istenenData =  Driver.getDriver().findElement(By.xpath(xpath)).getText();
+        String istenenData = Driver.getDriver().findElement(By.xpath(xpath)).getText();
         System.out.println("satir no : " + satir + ", sutun no : " + sutun + "deki data : " + istenenData);
 
         return istenenData;
