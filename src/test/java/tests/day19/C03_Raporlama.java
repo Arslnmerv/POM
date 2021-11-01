@@ -3,6 +3,7 @@ package tests.day19;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -59,7 +60,7 @@ public class C03_Raporlama extends TestBaseRapor  {
        sonucAdedi= sonucAdedi.replace(",","");
         int sonucSayisi = Integer.parseInt(sonucAdedi);
         extentTest.info("sonuc yazisi int haline getirildi");
-        Assert.assertTrue(sonucSayisi<1000);
+        Assert.assertTrue(sonucSayisi>1000);
         extentTest.pass("sonuc sayisinin 1000'den az oldugu test edildi");
         Driver.closeDriver();
     }
@@ -69,9 +70,8 @@ public class C03_Raporlama extends TestBaseRapor  {
         // electronic kategorisinde java icin arama yapalim
         extentTest=extentReports.createTest("java testi","ilk urunde java olmali");
         Driver.getDriver().get(ConfigReader.getProperty("amazonUrl"));
-        extentTest.info("amazona gidildi");
-        Select select=new Select(Driver.getDriver().findElement(By.id("searchDropdownBox")));
-        Thread.sleep(3000);
+        extentTest.info("amazona gidildi");Select select=new Select(Driver.getDriver().findElement(By.xpath("//select[@id='searchDropdownBox']")));
+        Thread.sleep(5000);
         select.selectByVisibleText("Electronics");
         extentTest.info("dropdown dan electronics secildi");
         WebElement aramaKutusu=Driver.getDriver().findElement(By.id("twotabsearchtextbox"));
@@ -82,5 +82,6 @@ public class C03_Raporlama extends TestBaseRapor  {
         String ikinciElementYazisi=ikinciUrun.getText();
         Assert.assertTrue(ikinciElementYazisi.contains("Java"));
         extentTest.pass("ilk urun isminde java oldugu test edildi");
+
     }
 }
