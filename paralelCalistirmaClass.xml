@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="paralel class calistirma" parallel="classes" thread-count="2" verbose="
+3">
+    <test name="paralel calistirma">
+        <classes>
+            <class name="tests.day13.C02_PagesFaceBook"></class>
+            <class name="tests.day16.C02_WebTable"></class>
+            <class name="tests.day19.C02_WindowHandleRaporlu"></class>
+            <class name="tests.day17_excelAutomation.C01_ReadExcel"></class>
+        </classes>
+    </test>
+</suite>
