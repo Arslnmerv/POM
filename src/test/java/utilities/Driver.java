@@ -48,6 +48,11 @@ private  Driver () {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     break;
+                    
+                case "headless-chrome":
+                    WebDriverManager.chromedriver().setup();
+                    driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
+                    break;
 
                 default:
                     WebDriverManager.firefoxdriver().setup();
