@@ -63,6 +63,7 @@ private  Driver () {
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         }
+        
         return driver;
     }
 
