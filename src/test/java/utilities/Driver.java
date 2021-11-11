@@ -55,6 +55,7 @@ private  Driver () {
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
 
+
                 default:
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
@@ -64,7 +65,6 @@ private  Driver () {
             driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         }
-
         return driver;
     }
 
