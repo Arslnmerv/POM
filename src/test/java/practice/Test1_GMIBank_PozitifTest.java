@@ -8,6 +8,7 @@ import utilities.Driver;
 public class Test1_GMIBank_PozitifTest {
 
     GMIBankPage gmiBankPage = new GMIBankPage();
+
     @Test
     public void SignInTest() {
         gmiBankPage.GMIBankLogin();
@@ -16,7 +17,7 @@ public class Test1_GMIBank_PozitifTest {
     }
 
     @Test
-    public void SignOutTest () {
+    public void SignOutTest() {
         gmiBankPage.girisOnay.click();
         gmiBankPage.signOutButonu.click();
         Driver.closeDriver();
